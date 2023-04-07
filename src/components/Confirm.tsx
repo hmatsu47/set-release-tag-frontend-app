@@ -1,7 +1,8 @@
+import { Show } from "solid-js";
 import { useTheme } from "@suid/material";
 import Box from "@suid/material/Box";
 import Button from "@suid/material/Button";
-import Modal from "@suid/material/Modal";
+// import Modal from "@suid/material/Modal";
 import Stack from "@suid/material/Stack";
 import Typography from "@suid/material/Typography";
 import { updateImages } from "../api/updateImages";
@@ -12,13 +13,14 @@ export const Confirm = () => {
   const theme = useTheme();
 
   return (
-    <Modal
-      open={isOpenedConfirm()}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      title="modal"
-    >
+    <Show when={isOpenedConfirm() === true} fallback={<></>}>
+      {/* <Modal
+        open={isOpenedConfirm()}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        title="modal"
+      > */}
       <Box
         sx={{
           position: "absolute",
@@ -63,6 +65,7 @@ export const Confirm = () => {
           </Button>
         </Stack>
       </Box>
-    </Modal>
+      {/* </Modal> */}
+    </Show>
   );
 };

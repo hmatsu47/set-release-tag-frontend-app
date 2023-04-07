@@ -23,9 +23,9 @@ export const App: Component = () => {
         aria-live="polite"
       >
         <Stack spacing={2} direction="column">
-          <Confirm />
           <Message />
           <ImageList />
+          <Confirm />
         </Stack>
       </Box>
     </ThemeProvider>

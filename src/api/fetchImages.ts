@@ -1,6 +1,11 @@
 import { ErrorResponse, ImageItem } from "../type";
 import { baseUri, getApiData } from "./apiHandler";
-import { setImages, setMessage, setMessageSeverity } from "../signal";
+import {
+  setImages,
+  setMessage,
+  setMessageSeverity,
+  setSelectedTag,
+} from "../signal";
 
 export const fetchImages = async () => {
   const load = async (): Promise<void> => {
@@ -19,6 +24,7 @@ export const fetchImages = async () => {
       return;
     }
     setImages(data as ImageItem[]);
+    setSelectedTag(undefined);
     setMessage(undefined);
   };
   void load();

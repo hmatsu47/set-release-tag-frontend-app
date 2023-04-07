@@ -5,6 +5,7 @@ import {
   setImages,
   setMessage,
   setMessageSeverity,
+  setSelectedTag,
 } from "../signal";
 
 export const updateImages = async () => {
@@ -30,6 +31,7 @@ export const updateImages = async () => {
       return;
     }
     setImages(data as ImageItem[]);
+    setSelectedTag(undefined);
     setMessage(undefined);
   };
   void load();

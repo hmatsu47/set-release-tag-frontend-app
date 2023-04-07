@@ -9,7 +9,7 @@ import { updateImages } from "../api/updateImages";
 import { isOpenedConfirm, setIsOpenedConfirm } from "../signal";
 
 export const Confirm = () => {
-  const handleClose = () => setIsOpenedConfirm(false);
+  // const handleClose = () => setIsOpenedConfirm(false);
   const theme = useTheme();
 
   return (

@@ -71,7 +71,7 @@ export const ImageList = () => {
                               ? "primary"
                               : "inherit"
                           }
-                          onClick={async (e) => {
+                          onClick={() => {
                             if (
                               imageItem.tags.filter((n) => n === "release")
                                 .length == 0

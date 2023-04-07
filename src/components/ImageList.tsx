@@ -81,12 +81,12 @@ export const ImageList = () => {
                             }
                           }}
                           sx={{ textTransform: "none" }}
-                          title={`${imageItem.tags.join(",")} を選択`}
+                          title={`${imageItem.tags.join(", ")} を選択`}
                         >
                           選択
                         </Button>
                       </TableCell>
-                      <TableCell>{imageItem.tags.join(",")}</TableCell>
+                      <TableCell>{imageItem.tags.join(", ")}</TableCell>
                       <TableCell>
                         {formatDateTimeDisplay(new Date(imageItem.pushed_at))}
                       </TableCell>

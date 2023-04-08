@@ -14,6 +14,7 @@ import { images, setIsOpenedConfirm, setSelectedTag } from "../signal";
 import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const ImageList = () => {
+  const attachTagName = "release";
   onMount(async () => {
     if (images() == undefined) {
       await fetchImages();
@@ -43,13 +44,11 @@ export const ImageList = () => {
               <TableHead>
                 <TableRow>
                   <TableCell>選択</TableCell>
-                  <TableCell>イメージタグ</TableCell>
-                  <TableCell>プッシュ日時</TableCell>
                   <TableCell>
-                    サイズ
-                    <br />
-                    （MB）
+                    イメージタグ（注：タグのないイメージは一覧から除外）
                   </TableCell>
+                  <TableCell>プッシュ日時</TableCell>
+                  <TableCell>サイズ（MB）</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -59,21 +58,21 @@ export const ImageList = () => {
                       <TableCell component="th" scope="row">
                         <Button
                           variant={
-                            imageItem.tags.filter((n) => n === "release")
+                            imageItem.tags.filter((n) => n === attachTagName)
                               .length > 0
                               ? "contained"
                               : "outlined"
                           }
                           size="small"
                           color={
-                            imageItem.tags.filter((n) => n === "release")
+                            imageItem.tags.filter((n) => n === attachTagName)
                               .length > 0
                               ? "primary"
                               : "inherit"
                           }
                           onClick={() => {
                             if (
-                              imageItem.tags.filter((n) => n === "release")
+                              imageItem.tags.filter((n) => n === attachTagName)
                                 .length == 0
                             ) {
                               setSelectedTag(imageItem.tags[0]);

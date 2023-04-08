@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`<TitleBar /> > Postfix 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">Postfix・コンテナリリース設定</div></div>"`;

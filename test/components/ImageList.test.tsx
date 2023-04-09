@@ -39,6 +39,15 @@ describe("<ImageList />", () => {
   imageCheckList.forEach((testCase) => {
     test(testCase.title, async () => {
       setIsOpenedConfirm(false);
+      // まずは一覧非表示の状態
+      setSelectedTag(undefined);
+      setImages(null);
+      const mock = mockGet(`${baseUri}/images`).willResolve();
+      const { container, findByText, findByTitle, unmount } = render(() => (
+        <ImageList />
+      ));
+      expect(mock).toHaveFetched();
+      // API 呼び出しチェックが終わったら必要項目をセットして確認
       setSelectedTag("hoge");
       setImages([
         {
@@ -58,11 +67,6 @@ describe("<ImageList />", () => {
           tags: ["latest"],
         } as ImageItem,
       ]);
-      // API コールはモックを用意するだけ（確認はしない）
-      const mock = mockGet(`${baseUri}/images`).willResolve([] as ImageItem[]);
-      const { container, findByText, findByTitle, unmount } = render(() => (
-        <ImageList />
-      ));
       const expectedListedTag = (await findByText(
         testCase.clickTag
       )) as HTMLElement;
@@ -90,9 +94,9 @@ describe("<ImageList />", () => {
     setIsOpenedConfirm(false);
     setSelectedTag(undefined);
     setImages(null);
-    // API コールはモックを用意するだけ（確認はしない）
-    const mock = mockGet(`${baseUri}/images`).willResolve([] as ImageItem[]);
+    const mock = mockGet(`${baseUri}/images`).willResolve({});
     const { container, findByText, unmount } = render(() => <ImageList />);
+    expect(mock).toHaveFetched();
     const expected = (await findByText(
       "リポジトリにイメージがありません"
     )) as HTMLElement;

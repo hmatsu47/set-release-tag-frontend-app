@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, onMount } from "solid-js";
 import Box from "@suid/material/Box";
 import Stack from "@suid/material/Stack";
 import { ThemeProvider } from "@suid/material";
@@ -7,8 +7,20 @@ import { ImageList } from "./ImageList";
 import { Message } from "./Message";
 import { TitleBar } from "./TitleBar";
 import { Confirm } from "./Confirm";
+import { isOpenedConfirm, setIsOpenedConfirm } from "../signal";
 
 export const App: Component = () => {
+  onMount(() => {
+    window.addEventListener("keyup", (e) => {
+      if (e.defaultPrevented) {
+        return;
+      }
+      if (e.key === "Escape" && isOpenedConfirm()) {
+        setIsOpenedConfirm(false);
+      }
+    });
+  });
+
   return (
     <ThemeProvider theme={ColorTheme}>
       <TitleBar />

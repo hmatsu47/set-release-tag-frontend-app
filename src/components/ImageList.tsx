@@ -10,7 +10,12 @@ import TableHead from "@suid/material/TableHead";
 import TableRow from "@suid/material/TableRow";
 import Typography from "@suid/material/Typography";
 import { fetchImages } from "../api/fetchImages";
-import { images, setIsOpenedConfirm, setSelectedTag } from "../signal";
+import {
+  images,
+  isOpenedConfirm,
+  setIsOpenedConfirm,
+  setSelectedTag,
+} from "../signal";
 import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const ImageList = () => {
@@ -57,6 +62,7 @@ export const ImageList = () => {
                     <TableRow>
                       <TableCell component="th" scope="row">
                         <Button
+                          disabled={isOpenedConfirm()}
                           variant={
                             imageItem.tags.filter((n) => n === attachTagName)
                               .length > 0

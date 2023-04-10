@@ -37,8 +37,8 @@ export const App: Component = () => {
         <Stack spacing={2} direction="column">
           <Message />
           <ImageList />
-          <Confirm />
         </Stack>
+        <Confirm />
       </Box>
     </ThemeProvider>
   );

@@ -1,4 +1,4 @@
-import { blue, purple } from "@suid/material/colors";
+import { grey, blueGrey } from "@suid/material/colors";
 import { createTheme } from "@suid/material/styles";
 
 export const ColorTheme = createTheme({
@@ -6,12 +6,12 @@ export const ColorTheme = createTheme({
     primary: {
       main: localStorage.getItem("primaryColor")
         ? (localStorage.getItem("primaryColor") as string)
-        : blue[700],
+        : grey[900],
     },
     secondary: {
       main: localStorage.getItem("secondaryColor")
         ? (localStorage.getItem("secondaryColor") as string)
-        : purple[500],
+        : blueGrey[900],
     },
   },
 });

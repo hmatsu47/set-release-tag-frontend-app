@@ -1,3 +1,5 @@
 // Vitest Snapshot v1
 
-exports[`<TitleBar /> > Postfix 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">Postfix・コンテナリリース設定</div></div>"`;
+exports[`<TitleBar /> > テスト環境Postfix 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">テスト環境Postfix・コンテナリリース設定</div></div>"`;
+
+exports[`<TitleBar /> > 本番環境Postfix 1`] = `"<div class=\\"MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic MuiAppBar-root MuiPaper-root css-xxxxxxxx\\"><div class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-root css-xxxxxxxx\\">本番環境Postfix・コンテナリリース設定</div></div>"`;

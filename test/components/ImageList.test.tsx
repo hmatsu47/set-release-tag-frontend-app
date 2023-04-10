@@ -26,18 +26,21 @@ describe("<ImageList />", () => {
     {
       title: "Confirm が表示されない（前回選択と同じボタンをクリック）",
       clickTag: "hoge, release",
+      attachTag: "release",
       expectedTag: "hoge",
       expectedOpenConfirm: false,
     },
     {
       title: "Confirm が表示される（前回選択と違うボタンをクリック）",
-      clickTag: "latest",
-      expectedTag: "latest",
+      clickTag: "hoge, release",
+      attachTag: "latest",
+      expectedTag: "hoge",
       expectedOpenConfirm: true,
     },
   ];
   imageCheckList.forEach((testCase) => {
     test(testCase.title, async () => {
+      localStorage.setItem("attachTagName", testCase.attachTag);
       setIsOpenedConfirm(false);
       // まずは一覧非表示の状態
       setSelectedTag(undefined);

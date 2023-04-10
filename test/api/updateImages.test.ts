@@ -22,8 +22,9 @@ describe("fetchImages", () => {
       pushedAt: new Date(),
       repositoryName: "hoge",
       size: 10000,
-      tags: ["latest", "release"],
+      tags: ["latest", "hoge"],
       attachTag: "release",
+      selectedTag: "latest",
     },
     {
       digest:
@@ -32,12 +33,14 @@ describe("fetchImages", () => {
       repositoryName: "fuga",
       size: 2000000,
       tags: ["hoge", "fuga", "release"],
-      attachTag: "release",
+      attachTag: "latest",
+      selectedTag: "hoge",
     },
   ];
   apiCall.forEach((testCase) => {
     test(`リリースタグセット API 呼び出し`, async () => {
-      setSelectedTag(testCase.attachTag);
+      localStorage.setItem("attachTagName", testCase.attachTag);
+      setSelectedTag(testCase.selectedTag);
       const mock = mockPost(`${baseUri}/images`)
         .withHeaders([["Content-Type", "application/json;charset=utf8"]])
         .willResolve([
@@ -54,7 +57,7 @@ describe("fetchImages", () => {
       expect(mock).toHaveFetched();
       expect(mock).toHaveFetchedWithBody(
         JSON.stringify({
-          tag: testCase.attachTag,
+          tag: testCase.selectedTag,
         } as ImageTag)
       );
     });

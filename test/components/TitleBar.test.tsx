@@ -6,9 +6,14 @@ import { TitleBar } from "../../src/components/TitleBar";
 describe("<TitleBar />", () => {
   const titleBarList = [
     {
-      title: "Postfix",
-      environment: "Postfix",
-      expected: "Postfix・コンテナリリース設定",
+      title: "本番環境Postfix",
+      environment: "本番環境Postfix",
+      expected: "本番環境Postfix・コンテナリリース設定",
+    },
+    {
+      title: "テスト環境Postfix",
+      environment: "テスト環境Postfix",
+      expected: "テスト環境Postfix・コンテナリリース設定",
     },
   ];
   titleBarList.forEach((testCase) => {

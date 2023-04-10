@@ -23,8 +23,9 @@ describe("<Confirm />", () => {
       pushedAt: new Date(),
       repositoryName: "hoge",
       size: 10000,
-      tags: ["latest", "release"],
+      tags: ["latest", "hoge"],
       attachTag: "release",
+      selectedTag: "latest",
       buttonYes: true,
       testFetch: true,
     },
@@ -36,7 +37,8 @@ describe("<Confirm />", () => {
       repositoryName: "fuga",
       size: 2000000,
       tags: ["hoge", "fuga", "release"],
-      attachTag: "release",
+      attachTag: "latest",
+      selectedTag: "hoge",
       buttonYes: false,
       testFetch: false,
     },
@@ -49,11 +51,12 @@ describe("<Confirm />", () => {
   });
   confirmList.forEach((testCase) => {
     test(testCase.title, async () => {
-      setSelectedTag(testCase.attachTag);
+      localStorage.setItem("attachTagName", testCase.attachTag);
+      setSelectedTag(testCase.selectedTag);
       setIsOpenedConfirm(true);
       const mock = mockPost(`${baseUri}/images`)
         .withHeaders([["Content-Type", "application/json;charset=utf8"]])
-        .willResolve({ tag: testCase.attachTag } as ImageTag);
+        .willResolve({ tag: testCase.selectedTag } as ImageTag);
       const { findByTitle, unmount } = render(() => <Confirm />);
       // はいボタン
       const buttonYes = (await findByTitle("はい")) as HTMLInputElement;
@@ -72,7 +75,7 @@ describe("<Confirm />", () => {
         // とりあえず呼び出しが行われたことだけを確認
         expect(mock).toHaveFetched();
         expect(mock).toHaveFetchedWithBody(
-          JSON.stringify({ tag: testCase.attachTag } as ImageTag)
+          JSON.stringify({ tag: testCase.selectedTag } as ImageTag)
         );
       }
       // モーダルクローズ

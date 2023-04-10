@@ -19,7 +19,9 @@ import {
 import { formatDateTimeDisplay } from "../formatDateTime";
 
 export const ImageList = () => {
-  const attachTagName = "release";
+  const attachTagName = localStorage.getItem("attachTagName")
+    ? (localStorage.getItem("attachTagName") as String)
+    : "release";
   onMount(async () => {
     if (images() == undefined) {
       await fetchImages();

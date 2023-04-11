@@ -32,7 +32,11 @@ export const updateImages = async () => {
     }
     setImages(data as ImageItem[]);
     setSelectedTag(undefined);
-    setMessage(undefined);
+    const attachTagName = localStorage.getItem("attachTagName")
+      ? (localStorage.getItem("attachTagName") as String)
+      : "release";
+    setMessage(`指定イメージに${attachTagName}タグをセットしました。`);
+    setMessageSeverity("success");
   };
   void load();
 };

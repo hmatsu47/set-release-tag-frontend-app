@@ -25,7 +25,8 @@ export const fetchImages = async () => {
     }
     setImages(data as ImageItem[]);
     setSelectedTag(undefined);
-    setMessage(undefined);
+    setMessage("リリース対象のPostfixイメージを選択してください。");
+    setMessageSeverity("info");
   };
   void load();
 };

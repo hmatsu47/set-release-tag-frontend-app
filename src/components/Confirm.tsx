@@ -37,7 +37,7 @@ export const Confirm = () => {
         title="modal"
       >
         <Typography variant="subtitle1">
-          本番リリース時に使用するイメージを選択します。
+          リリース時に使用するイメージを選択します。
         </Typography>
         <Typography variant="subtitle1">よろしいですか？</Typography>
         <Box sx={{ paddingTop: "20px" }}></Box>

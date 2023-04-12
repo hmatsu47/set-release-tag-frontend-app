@@ -1,3 +1,5 @@
+// @vitest-environment jsdom
+
 import { describe, expect, test, vi } from "vitest";
 import "vi-fetch/setup";
 import { mockFetch, mockGet } from "vi-fetch";

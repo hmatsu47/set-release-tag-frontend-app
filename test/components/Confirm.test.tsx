@@ -12,7 +12,7 @@ import {
   setIsOpenedConfirm,
   setSelectedTag,
 } from "../../src/signal";
-import { ImageTag } from "../../src/type";
+import { ImageItem, ImageTag } from "../../src/type";
 
 describe("<Confirm />", () => {
   const confirmList = [
@@ -56,7 +56,15 @@ describe("<Confirm />", () => {
       setIsOpenedConfirm(true);
       const mock = mockPost(`${baseUri}/images`)
         .withHeaders([["Content-Type", "application/json;charset=utf8"]])
-        .willResolve({ tag: testCase.selectedTag } as ImageTag);
+        .willResolve([
+          {
+            digest: testCase.digest,
+            pushed_at: testCase.pushedAt,
+            repository_name: testCase.repositoryName,
+            size: testCase.size,
+            tags: testCase.tags,
+          },
+        ] as ImageItem[]);
       const { findByTitle, unmount } = render(() => <Confirm />);
       // はいボタン
       const buttonYes = (await findByTitle("はい")) as HTMLInputElement;

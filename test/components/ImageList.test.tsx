@@ -99,7 +99,7 @@ describe("<ImageList />", () => {
     setIsOpenedConfirm(false);
     setSelectedTag(undefined);
     setImages(null);
-    const mock = mockGet(`${baseUri}/images`).willResolve({});
+    const mock = mockGet(`${baseUri}/images`).willResolve();
     const { container, findByText, unmount } = render(() => <ImageList />);
     expect(mock).toHaveFetched();
     const expected = (await findByText(

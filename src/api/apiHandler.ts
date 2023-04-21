@@ -11,7 +11,3 @@ export const getApiData = async (url: string) => {
 export const postApiData = async (url: string, object: Object) => {
   return await (await fetchWithTimeout("POST", url, object)).json();
 };
-// API で DELETE
-export const deleteApiData = async (url: string) => {
-  return await (await fetchWithTimeout("DELETE", url)).json();
-};

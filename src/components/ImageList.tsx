@@ -22,9 +22,9 @@ export const ImageList = () => {
   const attachTagName = localStorage.getItem("attachTagName")
     ? (localStorage.getItem("attachTagName") as String)
     : "release";
-  onMount(async () => {
+  onMount(() => {
     if (images() == undefined) {
-      await fetchImages();
+      fetchImages();
     }
   });
 

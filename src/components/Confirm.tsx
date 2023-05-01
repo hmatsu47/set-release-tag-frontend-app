@@ -46,9 +46,9 @@ export const Confirm = () => {
             variant="contained"
             size="small"
             color="primary"
-            onClick={async (e) => {
+            onClick={(e) => {
               setIsOpenedConfirm(false);
-              await updateImages();
+              updateImages();
             }}
             title="はい"
           >
